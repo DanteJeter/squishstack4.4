@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Squish Stack | Pick a Game</title>
+<meta name="description" content="Welcome to Squish Stack. Stack squishies or test your memory in Squish Match.">
+<meta property="og:title" content="Squish Stack">
+<meta property="og:description" content="Two squishy games. One colorful world.">
+<meta property="og:image" content="assets/squish-stack-share.png">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/icon.svg">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="assets/style.css">
+<meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Squish Stack"></head>
+<body class="home">
+<div class="bg-bubbles" aria-hidden="true"></div>
+<header class="topbar">
+  <a class="brand" href="./"><span class="brand-squish">SQUISH</span><span class="brand-stack">STACK</span></a>
+  <span class="volume">VOLUME 4</span>
+</header>
+<main class="home-main">
+  <section class="hero">
+    <div class="hero-copy">
+      <div class="eyebrow">THE SQUISH ARCADE</div>
+      <h1>Pick your<br><span>Squish.</span></h1>
+      <p>Two fast, colorful games built for quick rounds, high scores and one-more-try energy.</p>
+    </div>
+    <div class="mascot-stage" aria-hidden="true">
+      <div class="squish big pink"><i></i><b></b></div>
+      <div class="squish med blue"><i></i><b></b></div>
+      <div class="squish small yellow"><i></i><b></b></div>
+    </div>
+  </section>
+
+  <section class="game-grid" aria-label="Choose a game">
+    <a class="game-card stack-card" href="games/stack/">
+      <div class="card-art stack-art">
+        <div class="mini-squish a"></div><div class="mini-squish b"></div><div class="mini-squish c"></div>
+      </div>
+      <div class="card-copy">
+        <span class="pill">ORIGINAL</span>
+        <h2>Squish Stack</h2>
+        <p>Time the drop. Build the tower. Don't let the squishies tumble.</p>
+        <span class="play">PLAY NOW <strong>→</strong></span>
+      </div>
+    </a>
+
+    <a class="game-card match-card" href="games/match/">
+      <div class="card-art match-art">
+        <div class="match-tile">★</div><div class="match-tile">★</div>
+        <div class="match-tile ghost">?</div><div class="match-tile ghost">?</div>
+      </div>
+      <div class="card-copy">
+        <span class="pill new">NEW</span>
+        <h2>Squish Match</h2>
+        <p>Remember the squishies. Find the pairs. Build a streak before time runs out.</p>
+        <span class="play">PLAY NOW <strong>→</strong></span>
+      </div>
+    </a>
+  </section>
+  <p class="footer-note">Made for squishy fun • No account needed</p>
+</main>
+<script src="assets/home.js"></script>
+<script>if('serviceWorker'in navigator)addEventListener('load',()=>navigator.serviceWorker.register('./sw.js?v=4.3',{scope:'./'}).then(r=>r.update()).catch(()=>{}));</script></body>
+</html>

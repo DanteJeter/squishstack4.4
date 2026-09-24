@@ -1,0 +1,18 @@
+{
+  "name": "Squish Stack",
+  "short_name": "Squish Stack",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#6d53eb",
+  "theme_color": "#6d53eb",
+  "icons": [
+    {
+      "src": "assets/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "id": "./",
+  "scope": "./"
+}
