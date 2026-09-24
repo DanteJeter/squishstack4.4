@@ -1,0 +1,104 @@
+SQUISH STACK | VERSION 3 HOME-SCREEN APP
+Website: https://www.squishstack.com/
+
+1. UPLOAD TO YOUR OWN SERVER
+Back up your existing website files first. Unzip this download on your computer.
+Upload all website files and the icons folder to your domain's document root,
+commonly public_html or www. Keep the folder structure intact.
+
+Required:
+ index.html
+ style.css
+ game.js
+ app.js
+ characters.png
+ manifest.webmanifest
+ sw.js
+ squish-stack-share-v2.png
+ icons/ (entire folder)
+
+Upload sw.js LAST, after the other files are in place. No database, npm build,
+subscription, or ChatGPT hosting is needed. This version uses multiple files,
+so uploading only index.html is no longer sufficient.
+
+Use HTTPS with a valid certificate. Configure both the www hostname and your
+preferred domain redirect. The social-sharing metadata uses www.squishstack.com.
+If another site or app already uses a service worker at your domain root, have
+your developer review that before replacing it. A dedicated subfolder is also
+supported, but update canonical/og:url/image metadata for the chosen location.
+
+2. OPEN AND INSTALL
+Visit https://www.squishstack.com/ while online. Wait for the status above the
+game to read: Ready for offline play.
+
+iPhone/iPad: Open in Safari. Tap Share > Add to Home Screen. Enable Open as Web
+App if offered, then tap Add. Open Squish Stack from the new home-screen icon.
+Android: Open in Chrome. Tap Add to home screen on the page. If the browser
+provides an install prompt, use Install Squish Stack. Otherwise use Chrome's
+menu > Install app or Add to Home screen, following the instructions shown.
+Desktop Chrome/Edge: use the browser's install option in the address bar/menu.
+Installation options vary by browser and device. The game still works as a
+normal website when installation is unavailable.
+
+3. WHAT IS NEW
+- App icon and standalone home-screen launch.
+- Offline game, character artwork, and page after the first successful cache.
+- Best score saved locally across page refreshes and restarts.
+- Sound preference saved locally. Sound begins only after player interaction.
+- Installation instructions and offline readiness status.
+- Offline shopping notice; shopping is unavailable without internet.
+- An Update now prompt when a future service-worker release is ready.
+- The approved game difficulty and social-sharing poster are preserved.
+
+Best scores are device/browser-local, not a global leaderboard. They may not
+transfer from the browser to a newly installed app. Clearing website data removes
+scores/settings/offline files. Private browsing, disabled storage, and storage
+pressure can prevent or remove saving. There are no accounts or cloud saves.
+The online page requests Google Fonts; offline it uses built-in fallback fonts.
+Amazon links remain ordinary searches, not commission-tracking affiliate links.
+
+4. CHECK AFTER UPLOADING
+- Open the site and confirm artwork, sound toggle, and all controls work.
+- Play a round, reload, and confirm DEVICE BEST remains.
+- Set sound on, reload, and confirm the setting remains.
+- Wait for Ready for offline play, then close the app.
+- Switch on airplane mode and reopen it from the home-screen icon.
+- Verify a full round works offline and shopping displays the internet notice.
+- Reconnect and confirm the three shopping buttons work.
+- Open /manifest.webmanifest and /sw.js to confirm your server serves the files,
+  not a login screen, an error page, or your HTML homepage.
+- Confirm the poster is accessible at /squish-stack-share-v2.png.
+
+5. SERVER NOTES
+Serve HTML as text/html, JavaScript as text/javascript or application/javascript,
+and the manifest as application/manifest+json (application/json also works).
+Avoid long-lived immutable caching for index.html, manifest.webmanifest, and
+sw.js. Recommended HTTP Cache-Control: no-cache for those files. These settings
+belong in your server/hosting panel; no server-specific configuration is required
+in this package. If you have a Content Security Policy, permit the app's own
+scripts, workers, styles, images, plus Google Fonts if you retain the CSS @import.
+
+6. FUTURE UPDATES
+Whenever code, styling, or assets change, increment VERSION in sw.js (currently
+v3-1). Upload the complete release, with sw.js last. Existing players may need
+to open the app online, then select Update now. Their current round restarts;
+saved best scores and sound settings remain. Only Squish Stack caches in this
+app's scope are removed, not unrelated website caches.
+
+7. INSTALLATION TROUBLESHOOTING
+Opening index.html directly from a ZIP or file manager is not a PWA installation.
+Upload it over HTTPS first. If offline setup fails, check that every required
+file is uploaded and can be opened directly, reconnect, then reload the page.
+If your site already has a different service worker, resolve that conflict first.
+Use the browser menu if an automatic installation prompt does not appear.
+
+8. CHECKS COMPLETED
+JavaScript syntax; persisted score/sound behavior; storage-denied fallback;
+offline cache setup and navigation routing; scoped old-cache cleanup; explicit
+update activation; required assets, PNG dimensions, and ZIP integrity.
+Tests used simulated browser/service-worker APIs. Actual iPhone/Android install,
+visual behavior, and airplane-mode launch must be verified after upload.
+
+REFERENCE GUIDES
+https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Guides/Making_PWAs_installable
+https://support.apple.com/guide/iphone/bookmark-a-website-iph42ab2f3a7/ios
